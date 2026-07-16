@@ -1,21 +1,46 @@
-<form id="myForm">
-  <input type="text" name="Name" placeholder="Your Name" required>
-  <input type="email" name="Email" placeholder="Your Email" required>
-  <textarea name="Message" placeholder="Your Message"></textarea>
-  
-  <button type="submit">Submit</button>
-</form>
-
-<script>
-  const form = document.getElementById('myForm');
-  // Paste your Google Web App URL here
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzBtxMcybBpl7jhgqb9M8DWHgnlcTaM7eMCi5p25ZBUm07NbQFJPe_pHHXNI_pTGi8wmQ/exec'; 
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Technic Report</title>
+    <style>
+        body{
+            background-color: aquamarine;
+        }
+        iframe{
+            width: 20000px;
+            height:10000px;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://etachali2-prog.github.io/To-home/">To home</a>
+    <h1>Technic</h1>
     
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => alert('Galatoomaa!'))
-      .catch(error => console.error('Error!', error.message));
-  });
-</script>
+   <button onclick="window.print()">Print This Sheet</button>
+     
+
+     <script>
+        function checkPassword() {
+            // Set your password here!
+            const correctPassword = "MySecretPassword123"; 
+            
+            const userPassword = prompt("Please enter the password to view this sheet:");
+
+            if (userPassword === correctPassword) {
+                // Show the sheet if the password is correct
+                document.getElementById('protected-content').style.display = 'block';
+                document.body.style.paddingTop = '20px'; // Reset padding
+            } else {
+                alert("Incorrect password. Access denied.");
+                window.location.href = "https://google.com"; // Redirect them away
+            }
+        }
+
+        // Run the password check as soon as the page starts loading
+        window.onload = checkPassword;
+    </script>
+    <iframe src="https://script.google.com/macros/s/AKfycbzkmpZduPmFiKUb9mElIh2x2PlkHKitSAV9Pi4M5waKPAQMHd7UsD9mV9JGdJyM9wce/exec"></iframe>
+</body>
+</html>
+
